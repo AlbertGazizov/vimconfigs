@@ -21,14 +21,26 @@ set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore+=*.o,*.obj,*~ "stuff to ignore when tab completing
 
+" save on losing focus
+au FocusLost * :wa
+
+" GUI options
+set noswapfile
+if has("gui_running")
+  set transparency=0
+  set guifont=Monaco:h14
+  set guioptions-=T  "Remove toolbar
+  set guioptions=aAce
+endif
+
 "turn on syntax highlighting
 syntax on
 
 set t_Co=256 "tell the term has 256 colors
 
 "some stuff to get the mouse going in term
-set mouse=
-set ttymouse=xterm2
+"set mouse=
+"set ttymouse=xterm2
 
 "hide buffers when not displayed
 set hidden
@@ -39,9 +51,6 @@ silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
 nmap <Leader>mo :Rmodel 
 nmap <Leader>co :Rcontroller 
 nmap <Leader>ro :Rview 
-
-colorscheme wombat
-
 
 " Configure the Vundle
 filetype off " required!
@@ -63,6 +72,8 @@ Bundle 'scrooloose/nerdtree'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'Zenburn'
+Bundle 'Wombat'
 " non github repos
 
 filetype plugin indent on     " required! 
@@ -74,3 +85,5 @@ filetype plugin indent on     " required!
 " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 "
 " see :h vundle for more details or wiki for FAQ
+"colorscheme zenburn 
+colorscheme wombat
