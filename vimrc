@@ -20,6 +20,7 @@ set nofoldenable        "dont fold by default
 set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore+=*.o,*.obj,*~ "stuff to ignore when tab completing
+set ignorecase
 
 "set iskeyword=!-~,^*,^45,^124,^34,192-255,^_
 
@@ -55,7 +56,7 @@ nmap <Leader>co :Rcontroller
 nmap <Leader>ro :Rview
 
 " FuzzyFinder search in FufCoverageFile mode
-nmap <Leader>fe :FufCoverageFile<CR>
+"nmap <Leader>fe :FufCoverageFile<CR>
 
 " Ctags key
 map <Leader>ct :!ctags -R --exclude=.git --exclude=log --exclude=tmp *<CR>
@@ -82,11 +83,14 @@ Bundle 'vim-scripts/matchit.zip'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'wincent/Command-T'
 "Bundle 'scrooloose/syntastic'
 
 " vim-scripts repos
 Bundle 'L9'
-Bundle 'FuzzyFinder'
+"Bundle 'FuzzyFinder'
 
 "colorschemes:
 Bundle 'Zenburn'
@@ -124,4 +128,7 @@ set statusline+=\ %P    "percent through file
 set laststatus=2
 
 " FuzzyFinder options
-let g:fuf_coveragefile_exclude='\v\~$|\.(o|exe|dll|bak|orig|sw[po])$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|vendor'
+"let g:fuf_coveragefile_exclude='\v\~$|\.(o|exe|dll|bak|orig|sw[po])$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|vendor|tmp'
+
+" Changes working directory
+cd /Users/albert/Projects/ruby/karmacrm3_app
